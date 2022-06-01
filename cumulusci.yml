@@ -1,0 +1,31 @@
+minimum_cumulusci_version: '3.57.0'
+project:
+    name: Project-abc-2
+    package:
+        name: Project-abc-2
+        api_version: '54.0'
+    dependencies:
+        - github: 'http://foo.com'
+        - github: 'http://ba.com'
+    git:
+        default_branch: 'main'
+        prefix_feature: 'feature/'
+        prefix_beta: 'beta/'
+        prefix_release: 'release/'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/Project-abc-2/tests
+            options:
+                outputdir: robot/Project-abc-2/results
+
+    robot_testdoc:
+        options:
+            path: robot/Project-abc-2/tests
+            output: robot/Project-abc-2/doc/Project-abc-2_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
